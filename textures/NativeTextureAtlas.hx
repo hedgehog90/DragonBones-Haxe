@@ -13,8 +13,6 @@ import flash.geom.Rectangle;
 import dragonBones.core.dragonBones_internal;
 import dragonBones.objects.DataParser;
 
-use namespace dragonBones_internal;
-
 /**
  * The NativeTextureAtlas creates and manipulates TextureAtlas from traditional flash.display.DisplayObject.
  */
@@ -139,7 +137,7 @@ private function parseData(textureAtlasRawData:Object):Void
 	delete _subTextureDataDic.__name;
 }
 
-dragonBones_private function movieClipToBitmapData():Void
+private function movieClipToBitmapData():Void
 {
 	if (!_bitmapData && _movieClip)
 	{

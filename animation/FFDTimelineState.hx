@@ -56,16 +56,16 @@ public var slotName:String;
 public var skinName:String;
 
 /** @private */
-dragonBones_private var _weight:Float;
+private var _weight:Float;
 
 /** @private */
-dragonBones_private var _blendEnabled:Bool;
+private var _blendEnabled:Bool;
 
 /** @private */
-dragonBones_private var _isComplete:Bool;
+private var _isComplete:Bool;
 
 /** @private */
-dragonBones_private var _animationState:AnimationState;
+private var _animationState:AnimationState;
 
 private var _totalTime:Int; //duration
 
@@ -109,7 +109,7 @@ private function clear():Void
 }
 
 /** @private */
-dragonBones_private function fadeIn(mesh:MeshData, animationState:AnimationState, timelineData:FFDTimeline):Void
+private function fadeIn(mesh:MeshData, animationState:AnimationState, timelineData:FFDTimeline):Void
 {
 	_mesh = mesh;
 	//_armature = _slot.armature;
@@ -147,7 +147,7 @@ dragonBones_private function fadeIn(mesh:MeshData, animationState:AnimationState
 }
 
 /** @private */
-dragonBones_private function update(progress:Float):Void
+private function update(progress:Float):Void
 {
 	if(_updateMode == -1)
 	{

@@ -92,9 +92,9 @@ public var autoTween:Bool;
 public var lastFrameAutoTween:Bool;
 
 /** @private */
-dragonBones_private var _layer:Int;
+private var _layer:Int;
 /** @private */
-dragonBones_private var _group:String;
+private var _group:String;
 
 private var _armature:Armature;
 private var _timelineStateList:Vector<TimelineState>;
@@ -151,7 +151,7 @@ private function clear():Void
 	_clip = null;
 }
 
-dragonBones_private function resetTimelineStateList():Void
+private function resetTimelineStateList():Void
 {
 	var i:Int = _timelineStateList.length;
 	while(i --)
@@ -271,7 +271,7 @@ private function removeBoneFromBoneMask(boneName:String):Void
  * @private
  * Update timeline state based on mixing transforms and clip.
  */
-dragonBones_private function updateTimelineStates():Void
+private function updateTimelineStates():Void
 {
 	var timelineState:TimelineState;
 	var slotTimelineState:SlotTimelineState;
@@ -450,7 +450,7 @@ public function stop():AnimationState
 }
 
 /** @private */
-dragonBones_private function fadeIn(armature:Armature, clip:AnimationData, fadeTotalTime:Float, timeScale:Float, playTimes:Float, pausePlayhead:Bool):AnimationState
+private function fadeIn(armature:Armature, clip:AnimationData, fadeTotalTime:Float, timeScale:Float, playTimes:Float, pausePlayhead:Bool):AnimationState
 {
 	_armature = armature;
 	_clip = clip;
@@ -551,7 +551,7 @@ public function fadeOut(fadeTotalTime:Float, pausePlayhead:Bool):AnimationState
 }
 
 /** @private */
-dragonBones_private function advanceTime(passedTime:Float):Bool
+private function advanceTime(passedTime:Float):Bool
 {
 	passedTime *= _timeScale;
 	

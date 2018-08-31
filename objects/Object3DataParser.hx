@@ -18,8 +18,6 @@ class Object3DataParser
 {
 private static var tempDragonBonesData:DragonBonesData;
 
-use namespace dragonBones_internal;
-
 public function new() 
 {
 	

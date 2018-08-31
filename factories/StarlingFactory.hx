@@ -36,8 +36,6 @@ import starling.textures.TextureAtlas;
 
 
 
-use namespace dragonBones_internal;
-
 /**
  * A object managing the set of armature resources for Starling engine. It parses the raw data, stores the armature resources and creates armature instances.
  * @see dragonBones.Armature

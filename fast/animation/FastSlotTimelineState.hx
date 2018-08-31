@@ -12,8 +12,6 @@ import dragonBones.objects.SlotTimeline;
 import dragonBones.utils.ColorTransformUtil;
 import dragonBones.utils.MathUtil;
 
-use namespace dragonBones_internal;
-
 /** @private */
 public final class FastSlotTimelineState
 {
@@ -59,17 +57,17 @@ dragonBones_internal static function clear():Void
 public var name:String;
 
 /** @private */
-dragonBones_private var _weight:Float;
+private var _weight:Float;
 
 //TO DO 干什么用的
 /** @private */
-dragonBones_private var _blendEnabled:Bool;
+private var _blendEnabled:Bool;
 
 /** @private */
-dragonBones_private var _isComplete:Bool;
+private var _isComplete:Bool;
 
 /** @private */
-dragonBones_private var _animationState:FastAnimationState;
+private var _animationState:FastAnimationState;
 
 private var _totalTime:Int; //duration
 
@@ -111,7 +109,7 @@ private function clear():Void
 
 //动画开始结束
 /** @private */
-dragonBones_private function fadeIn(slot:FastSlot, animationState:FastAnimationState, timelineData:SlotTimeline):Void
+private function fadeIn(slot:FastSlot, animationState:FastAnimationState, timelineData:SlotTimeline):Void
 {
 	_slot = slot;
 	_armature = _slot.armature;
@@ -150,12 +148,12 @@ dragonBones_private function fadeIn(slot:FastSlot, animationState:FastAnimationS
 //动画进行中
 
 /** @private */
-dragonBones_private function updateFade(progress:Float):Void
+private function updateFade(progress:Float):Void
 {
 }
 
 /** @private */
-dragonBones_private function update(progress:Float):Void
+private function update(progress:Float):Void
 {
 	if(_updateMode == -1)
 	{

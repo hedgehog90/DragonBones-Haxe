@@ -14,14 +14,12 @@ import dragonBones.objects.DataParser;
 import starling.textures.SubTexture;
 import starling.textures.Texture;
 import starling.textures.TextureAtlas;
-use namespace dragonBones_internal;
-
 /**
  * The StarlingTextureAtlas creates and manipulates TextureAtlas from starling.display.DisplayObject.
  */
 class StarlingTextureAtlas extends TextureAtlas implements ITextureAtlas
 {
-dragonBones_private var _bitmapData:BitmapData;
+private var _bitmapData:BitmapData;
 /**
  * @private
  */

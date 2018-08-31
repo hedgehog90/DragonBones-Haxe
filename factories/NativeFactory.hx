@@ -17,8 +17,6 @@ import flash.display.Sprite;
 import flash.geom.Matrix;
 import flash.geom.Rectangle;
 
-use namespace dragonBones_internal;
-
 /**
 * Copyright 2012-2013. DragonBones. All Rights Reserved.
 * @playerversion Flash 10.0, Flash 10

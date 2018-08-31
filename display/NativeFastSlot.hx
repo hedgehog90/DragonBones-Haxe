@@ -7,8 +7,6 @@ import flash.display.DisplayObjectContainer;
 import dragonBones.core.dragonBones_internal;
 import dragonBones.fast.FastSlot;
 
-use namespace dragonBones_internal;
-
 class NativeFastSlot extends FastSlot
 {
 private var _nativeDisplay:DisplayObject;
@@ -30,13 +28,13 @@ override public function dispose():Void
 //Abstract method
 
 /** @private */
-override dragonBones_private function updateDisplay(value:Object):Void
+override private function updateDisplay(value:Object):Void
 {
 	_nativeDisplay = value as DisplayObject;
 }
 
 /** @private */
-override dragonBones_private function getDisplayIndex():Int
+override private function getDisplayIndex():Int
 {
 	if(_nativeDisplay && _nativeDisplay.parent)
 	{
@@ -46,7 +44,7 @@ override dragonBones_private function getDisplayIndex():Int
 }
 
 /** @private */
-override dragonBones_private function addDisplayToContainer(container:Object, index:Int = -1):Void
+override private function addDisplayToContainer(container:Object, index:Int = -1):Void
 {
 	var nativeContainer:DisplayObjectContainer = container as DisplayObjectContainer;
 	if(_nativeDisplay && nativeContainer)
@@ -64,7 +62,7 @@ override dragonBones_private function addDisplayToContainer(container:Object, in
 }
 
 /** @private */
-override dragonBones_private function removeDisplayFromContainer():Void
+override private function removeDisplayFromContainer():Void
 {
 	if(_nativeDisplay && _nativeDisplay.parent)
 	{
@@ -73,7 +71,7 @@ override dragonBones_private function removeDisplayFromContainer():Void
 }
 
 /** @private */
-override dragonBones_private function updateTransform():Void
+override private function updateTransform():Void
 {
 	if(_nativeDisplay)
 	{
@@ -82,7 +80,7 @@ override dragonBones_private function updateTransform():Void
 }
 
 /** @private */
-override dragonBones_private function updateDisplayVisible(value:Bool):Void
+override private function updateDisplayVisible(value:Bool):Void
 {
 	//if(_nativeDisplay)
 	//{
@@ -91,7 +89,7 @@ override dragonBones_private function updateDisplayVisible(value:Bool):Void
 }
 
 /** @private */
-override dragonBones_private function updateDisplayColor(
+override private function updateDisplayColor(
 	aOffset:Float, 
 	rOffset:Float, 
 	gOffset:Float, 
@@ -112,7 +110,7 @@ override dragonBones_private function updateDisplayColor(
 }
 
 /** @private */
-override dragonBones_private function updateDisplayBlendMode(value:String):Void
+override private function updateDisplayBlendMode(value:String):Void
 {
 	if(_nativeDisplay)
 	{

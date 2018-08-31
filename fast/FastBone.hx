@@ -13,8 +13,6 @@ import dragonBones.objects.Frame;
 import dragonBones.objects.ParentTransformObject;
 import dragonBones.utils.TransformUtil;
 
-use namespace dragonBones_internal;
-
 /**
  * 不保存子骨骼列表和子插槽列表
  * 不能动态添加子骨骼和子插槽
@@ -45,14 +43,14 @@ public var slotList:Vector<FastSlot> = new Vector();
 public var boneList:Vector<FastBone> = new Vector();
 
 /** @private */
-dragonBones_private var _timelineState:FastBoneTimelineState;
+private var _timelineState:FastBoneTimelineState;
 
 /** @private */
-dragonBones_private var _needUpdate:Int;
+private var _needUpdate:Int;
 /** @private */
-dragonBones_private var _tweenPivot:Point;
+private var _tweenPivot:Point;
 /** @private */
-dragonBones_private var _localTransform:DBTransform;
+private var _localTransform:DBTransform;
 
 public function new()
 {
@@ -140,7 +138,7 @@ override private function calculateRelativeParentTransform():Void
 }
 
 /** @private */
-override dragonBones_private function updateByCache():Void
+override private function updateByCache():Void
 {
 	super.updateByCache();
 	_global = _frameCache.globalTransform;
@@ -148,7 +146,7 @@ override dragonBones_private function updateByCache():Void
 }
 
 /** @private */
-dragonBones_private function update(needUpdate:Bool = false):Void
+private function update(needUpdate:Bool = false):Void
 {
 	_needUpdate --;
 	if(needUpdate || _needUpdate > 0 || (this._parent && this._parent._needUpdate > 0))
@@ -234,7 +232,7 @@ override private function updateGlobal():ParentTransformObject
 }
 
 /** @private */
-dragonBones_private function hideSlots():Void
+private function hideSlots():Void
 {
 	for each(var childSlot:FastSlot in slotList)
 	{
@@ -243,7 +241,7 @@ dragonBones_private function hideSlots():Void
 }
 
 /** @private When bone timeline enter a key frame, call this func*/
-dragonBones_private function arriveAtFrame(frame:Frame, animationState:FastAnimationState):Void
+private function arriveAtFrame(frame:Frame, animationState:FastAnimationState):Void
 {
 	var childSlot:FastSlot;
 	if(frame.event && this.armature.hasEventListener(FrameEvent.BONE_FRAME_EVENT))

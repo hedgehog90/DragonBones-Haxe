@@ -13,8 +13,6 @@ import dragonBones.objects.TransformTimeline;
 import dragonBones.utils.TransformUtil;
 import dragonBones.utils.MathUtil;
 
-use namespace dragonBones_internal;
-
 /** @private */
 public final class TimelineState
 {
@@ -58,19 +56,19 @@ dragonBones_internal static function clear():Void
 public var name:String;
 
 /** @private */
-dragonBones_private var _weight:Float;
+private var _weight:Float;
 
 /** @private */
-dragonBones_private var _transform:DBTransform;
+private var _transform:DBTransform;
 
 /** @private */
-dragonBones_private var _pivot:Point;
+private var _pivot:Point;
 
 /** @private */
-dragonBones_private var _isComplete:Bool;
+private var _isComplete:Bool;
 
 /** @private */
-dragonBones_private var _animationState:AnimationState;
+private var _animationState:AnimationState;
 
 private var _totalTime:Int; //duration
 
@@ -128,7 +126,7 @@ private function clear():Void
 
 //动画开始结束
 /** @private */
-dragonBones_private function fadeIn(bone:Bone, animationState:AnimationState, timelineData:TransformTimeline):Void
+private function fadeIn(bone:Bone, animationState:AnimationState, timelineData:TransformTimeline):Void
 {
 	_bone = bone;
 	_armature = _bone.armature;
@@ -188,7 +186,7 @@ dragonBones_private function fadeIn(bone:Bone, animationState:AnimationState, ti
 }
 
 /** @private */
-dragonBones_private function fadeOut():Void
+private function fadeOut():Void
 {
 	_transform.skewX = TransformUtil.formatRadian(_transform.skewX);
 	_transform.skewY = TransformUtil.formatRadian(_transform.skewY);
@@ -197,7 +195,7 @@ dragonBones_private function fadeOut():Void
 //动画进行中
 
 /** @private */
-dragonBones_private function update(progress:Float):Void
+private function update(progress:Float):Void
 {
 	if(_updateMode == -1)
 	{

@@ -16,8 +16,6 @@ import dragonBones.objects.Frame;
 import dragonBones.objects.ParentTransformObject;
 import dragonBones.utils.TransformUtil;
 
-use namespace dragonBones_internal;
-
 import flash.Vector;
 
 class Bone extends DBObject
@@ -67,23 +65,23 @@ private var _slotList:Vector<Slot>;
 private var _timelineStateList:Vector<TimelineState>;
 
 /** @private */
-dragonBones_private var _tween:DBTransform;
+private var _tween:DBTransform;
 
 /** @private */
-dragonBones_private var _tweenPivot:Point;
+private var _tweenPivot:Point;
 
 /** @private */
-dragonBones_private var _needUpdate:Int;
+private var _needUpdate:Int;
 
 /** @private */
-//dragonBones_private var _isColorChanged:Bool;
+//private var _isColorChanged:Bool;
 
 /** @private */
-dragonBones_private var _globalTransformForChild:DBTransform;
+private var _globalTransformForChild:DBTransform;
 /** @private */
-dragonBones_private var _globalTransformMatrixForChild:Matrix;
+private var _globalTransformMatrixForChild:Matrix;
 /** @private */
-dragonBones_private var _localTransform:DBTransform;
+private var _localTransform:DBTransform;
 
 private var _tempGlobalTransformForChild:DBTransform;
 private var _tempGlobalTransformMatrixForChild:Matrix;
@@ -296,7 +294,7 @@ public function removeSlot(childSlot:Slot):Void
 }
 
 /** @private */
-override dragonBones_private function setArmature(value:Armature):Void
+override private function setArmature(value:Armature):Void
 {
 	if(_armature == value)
 	{
@@ -396,7 +394,7 @@ override private function calculateRelativeParentTransform():Void
 }
 
 /** @private */
-dragonBones_private function update(needUpdate:Bool = false):Void
+private function update(needUpdate:Bool = false):Void
 {
 	_needUpdate --;
 	if(needUpdate || _needUpdate > 0 || (this._parent && this._parent._needUpdate > 0))
@@ -490,7 +488,7 @@ public function adjustGlobalTransformMatrixByIK():Void
 }
 
 /** @private */
-dragonBones_private function hideSlots():Void
+private function hideSlots():Void
 {
 	for each(var childSlot:Slot in _slotList)
 	{
@@ -499,7 +497,7 @@ dragonBones_private function hideSlots():Void
 }
 
 /** @private When bone timeline enter a key frame, call this func*/
-dragonBones_private function arriveAtFrame(frame:Frame, timelineState:TimelineState, animationState:AnimationState, isCross:Bool):Void
+private function arriveAtFrame(frame:Frame, timelineState:TimelineState, animationState:AnimationState, isCross:Bool):Void
 {
 	var displayControl:Bool = 
 	animationState.displayControl &&
@@ -595,7 +593,7 @@ override private function updateGlobal():ParentTransformObject
 }
 
 /** @private */
-dragonBones_private function addState(timelineState:TimelineState):Void
+private function addState(timelineState:TimelineState):Void
 {
 	if(_timelineStateList.indexOf(timelineState) < 0)
 	{
@@ -605,7 +603,7 @@ dragonBones_private function addState(timelineState:TimelineState):Void
 }
 
 /** @private */
-dragonBones_private function removeState(timelineState:TimelineState):Void
+private function removeState(timelineState:TimelineState):Void
 {
 	var index:Int = _timelineStateList.indexOf(timelineState);
 	if(index >= 0)
@@ -615,7 +613,7 @@ dragonBones_private function removeState(timelineState:TimelineState):Void
 }
 
 /** @private */
-dragonBones_private function removeAllStates():Void
+private function removeAllStates():Void
 {
 	_timelineStateList.length = 0;
 }

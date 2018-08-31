@@ -12,8 +12,6 @@ import dragonBones.objects.TransformTimeline;
 import dragonBones.utils.MathUtil;
 import dragonBones.utils.TransformUtil;
 
-use namespace dragonBones_internal;
-
 import flash.Vector;
 
 class FastBoneTimelineState
@@ -72,13 +70,13 @@ private var _transformToFadein:DBTransform;
 private var _durationPivot:Point;
 private var _originPivot:Point;
 /** @private */
-dragonBones_private var _animationState:FastAnimationState;
+private var _animationState:FastAnimationState;
 /** @private */
-dragonBones_private var _isComplete:Bool;
+private var _isComplete:Bool;
 /** @private */
-dragonBones_private var _transform:DBTransform;
+private var _transform:DBTransform;
 /** @private */
-dragonBones_private var _pivot:Point;
+private var _pivot:Point;
 
 
 public function new()
@@ -103,7 +101,7 @@ private function clear():Void
 }
 
 /** @private */
-dragonBones_private function fadeIn(bone:FastBone, animationState:FastAnimationState, timelineData:TransformTimeline):Void
+private function fadeIn(bone:FastBone, animationState:FastAnimationState, timelineData:TransformTimeline):Void
 {
 	_bone = bone;
 	_animationState = animationState;
@@ -163,7 +161,7 @@ dragonBones_private function fadeIn(bone:FastBone, animationState:FastAnimationS
 }
 
 /** @private */
-dragonBones_private function updateFade(progress:Float):Void
+private function updateFade(progress:Float):Void
 {
 	_transform.x = _transformToFadein.x + _durationTransform.x * progress;
 	_transform.y = _transformToFadein.y + _durationTransform.y * progress;
@@ -175,7 +173,7 @@ dragonBones_private function updateFade(progress:Float):Void
 }
 
 /** @private */
-dragonBones_private function update(progress:Float):Void
+private function update(progress:Float):Void
 {
 	if(_updateMode == 1)
 	{

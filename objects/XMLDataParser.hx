@@ -18,8 +18,6 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.utils.Dictionary;
 
-use namespace dragonBones_internal;
-
 /**
  * The XMLDataParser class parses xml data from dragonBones generated maps.
  */

@@ -9,8 +9,6 @@ import dragonBones.core.dragonBones_internal;
 import dragonBones.objects.DBTransform;
 import dragonBones.utils.TransformUtil;
 
-use namespace dragonBones_internal;
-
 
 class FastDBObject
 {
@@ -39,28 +37,28 @@ public var inheritTranslation:Bool;
 
 
 /** @private */
-dragonBones_private var _global:DBTransform;
+private var _global:DBTransform;
 /** @private */
-dragonBones_private var _globalTransformMatrix:Matrix;
+private var _globalTransformMatrix:Matrix;
 
 /** @private */
-dragonBones_private var _globalBackup:DBTransform;
+private var _globalBackup:DBTransform;
 /** @private */
-dragonBones_private var _globalTransformMatrixBackup:Matrix;
+private var _globalTransformMatrixBackup:Matrix;
 
 dragonBones_internal static var _tempParentGlobalTransform:DBTransform = new DBTransform();
 
-dragonBones_private var _frameCache:FrameCache;
+private var _frameCache:FrameCache;
 
 /** @private */
-dragonBones_private function updateByCache():Void
+private function updateByCache():Void
 {
 	_global = _frameCache.globalTransform;
 	_globalTransformMatrix = _frameCache.globalTransformMatrix;
 }
 
 /** @private */
-dragonBones_private function switchTransformToBackup():Void
+private function switchTransformToBackup():Void
 {
 	if(!_globalBackup)
 	{
@@ -83,10 +81,10 @@ private var _origin:DBTransform;
 private var _visible:Bool;
 
 /** @private */
-dragonBones_private var _parent:FastBone;
+private var _parent:FastBone;
 
 /** @private */
-dragonBones_private function setParent(value:FastBone):Void
+private function setParent(value:FastBone):Void
 {
 	_parent = value;
 }

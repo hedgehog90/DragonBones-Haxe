@@ -7,8 +7,6 @@ import dragonBones.core.dragonBones_internal;
 import dragonBones.objects.AnimationData;
 import dragonBones.objects.ArmatureData;
 
-use namespace dragonBones_internal;
-
 class AnimationCacheManager
 {
 public var cacheGeneratorArmature:ICacheableArmature

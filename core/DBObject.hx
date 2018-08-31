@@ -8,8 +8,6 @@ import dragonBones.Bone;
 import dragonBones.objects.DBTransform;
 import dragonBones.utils.TransformUtil;
 
-use namespace dragonBones_internal;
-
 class DBObject
 {
 	public var name:String;
@@ -35,9 +33,9 @@ class DBObject
 	public var inheritTranslation:Bool;
 
 	/** @private */
-	dragonBones_private var _global:DBTransform;
+	private var _global:DBTransform;
 	/** @private */
-	dragonBones_private var _globalTransformMatrix:Matrix;
+	private var _globalTransformMatrix:Matrix;
 
 	dragonBones_internal static var _tempParentGlobalTransformMatrix:Matrix = new Matrix();
 	dragonBones_internal static var _tempParentGlobalTransform:DBTransform = new DBTransform();
@@ -100,13 +98,13 @@ class DBObject
 		return _armature;
 	}
 	/** @private */
-	dragonBones_private function setArmature(value:Armature):Void
+	private function setArmature(value:Armature):Void
 	{
 		_armature = value;
 	}
 
 	/** @private */
-	dragonBones_private var _parent:Bone;
+	private var _parent:Bone;
 	/**
 	 * Indicates the Bone instance that directly contains this DBObject instance if any.
 	 */
@@ -116,7 +114,7 @@ class DBObject
 		return _parent;
 	}
 	/** @private */
-	dragonBones_private function setParent(value:Bone):Void
+	private function setParent(value:Bone):Void
 	{
 		_parent = value;
 	}

@@ -15,8 +15,6 @@ import starling.display.Quad;
 
 
 
-use namespace dragonBones_internal;
-
 class StarlingSlot extends Slot
 {
 private var _starlingDisplay:DisplayObject;
@@ -51,7 +49,7 @@ override public function dispose():Void
 }
 
 /** @private */
-override dragonBones_private function updateDisplay(value:Object):Void
+override private function updateDisplay(value:Object):Void
 {
 	_starlingDisplay = value as DisplayObject;
 }
@@ -60,7 +58,7 @@ override dragonBones_private function updateDisplay(value:Object):Void
 //Abstract method
 
 /** @private */
-override dragonBones_private function getDisplayIndex():Int
+override private function getDisplayIndex():Int
 {
 	if(_starlingDisplay && _starlingDisplay.parent)
 	{
@@ -70,7 +68,7 @@ override dragonBones_private function getDisplayIndex():Int
 }
 
 /** @private */
-override dragonBones_private function addDisplayToContainer(container:Object, index:Int = -1):Void
+override private function addDisplayToContainer(container:Object, index:Int = -1):Void
 {
 	var starlingContainer:DisplayObjectContainer = container as DisplayObjectContainer;
 	if(_starlingDisplay && starlingContainer)
@@ -87,7 +85,7 @@ override dragonBones_private function addDisplayToContainer(container:Object, in
 }
 
 /** @private */
-override dragonBones_private function removeDisplayFromContainer():Void
+override private function removeDisplayFromContainer():Void
 {
 	if(_starlingDisplay && _starlingDisplay.parent)
 	{
@@ -96,7 +94,7 @@ override dragonBones_private function removeDisplayFromContainer():Void
 }
 
 /** @private */
-override dragonBones_private function updateTransform():Void
+override private function updateTransform():Void
 {
 	if(_starlingDisplay)
 	{
@@ -137,7 +135,7 @@ override dragonBones_private function updateTransform():Void
 }
 
 /** @private */
-override dragonBones_private function updateDisplayVisible(value:Bool):Void
+override private function updateDisplayVisible(value:Bool):Void
 {
 	if(_starlingDisplay && this._parent)
 	{
@@ -146,7 +144,7 @@ override dragonBones_private function updateDisplayVisible(value:Bool):Void
 }
 
 /** @private */
-override dragonBones_private function updateDisplayColor(
+override private function updateDisplayColor(
 	aOffset:Float, 
 	rOffset:Float, 
 	gOffset:Float, 
@@ -173,7 +171,7 @@ override dragonBones_private function updateDisplayColor(
 }
 
 /** @private */
-override dragonBones_private function updateDisplayBlendMode(value:String):Void
+override private function updateDisplayBlendMode(value:String):Void
 {
 	if(_starlingDisplay)
 	{

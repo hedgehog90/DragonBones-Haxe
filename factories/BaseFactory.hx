@@ -26,8 +26,6 @@ import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
 
-use namespace dragonBones_internal;
-
 import flash.Vector;
 
 class BaseFactory  extends EventDispatcher

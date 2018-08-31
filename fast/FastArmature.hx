@@ -18,8 +18,6 @@ import dragonBones.objects.ArmatureData;
 import dragonBones.objects.DragonBonesData;
 import dragonBones.objects.Frame;
 
-use namespace dragonBones_internal;
-
 /**
  * Dispatched when an animation state play complete (if playtimes equals to 0 means loop forever. Then this Event will not be triggered)
  */
@@ -72,11 +70,11 @@ private var _display:Object;
 
 /** @private Store bones based on bones' hierarchy (From root to leaf)*/
 public var boneList:Vector<FastBone>;
-dragonBones_private var _boneDic:Object;
+private var _boneDic:Object;
 
 /** @private Store slots based on slots' zOrder*/
 public var slotList:Vector<FastSlot>;
-dragonBones_private var _slotDic:Object;
+private var _slotDic:Object;
 
 private var _boneIKList:Vector<Vector.<FastBone>> = new Vector<Vector.<FastBone>>();
 private var _ikList:Vector<FastIKConstraint>;
@@ -85,10 +83,10 @@ public var slotHasChildArmatureList:Vector<FastSlot>;
 
 private var _enableEventDispatch:Bool = true;
 
-dragonBones_private var __dragonBonesData:DragonBonesData;
-dragonBones_private var _armatureData:ArmatureData;
-dragonBones_private var _slotsZOrderChanged:Bool;
-dragonBones_private var _skewEnable:Bool;
+private var __dragonBonesData:DragonBonesData;
+private var _armatureData:ArmatureData;
+private var _slotsZOrderChanged:Bool;
+private var _skewEnable:Bool;
 
 private var _eventList:Array;
 private var _delayDispose:Bool;
@@ -336,7 +334,7 @@ public function getSlots(returnCopy:Bool = true):Vector<FastSlot>
 	return returnCopy?slotList.concat():slotList;
 }
 
-dragonBones_private function _updateBonesByCache():Void
+private function _updateBonesByCache():Void
 {
 	var i:Int = boneList.length;
 	var bone:FastBone;
@@ -354,7 +352,7 @@ dragonBones_private function _updateBonesByCache():Void
  * @param (optional) The parent's name of this Bone instance.
  * @see dragonBones.Bone
  */
-dragonBones_private function addBone(bone:FastBone, parentName:String = null):Void
+private function addBone(bone:FastBone, parentName:String = null):Void
 {
 	var parentBone:FastBone;
 	if(parentName)
@@ -374,7 +372,7 @@ dragonBones_private function addBone(bone:FastBone, parentName:String = null):Vo
  * @param boneName bone name
  * @see dragonBones.core.DBObject
  */
-dragonBones_private function addSlot(slot:FastSlot, parentBoneName:String):Void
+private function addSlot(slot:FastSlot, parentBoneName:String):Void
 {
 	var bone:FastBone = getBone(parentBoneName);
 	if(bone)
@@ -400,7 +398,7 @@ dragonBones_private function addSlot(slot:FastSlot, parentBoneName:String):Void
 /**
  * Sort all slots based on zOrder
  */
-dragonBones_private function updateSlotsZOrder():Void
+private function updateSlotsZOrder():Void
 {
 	slotList.fixed = false;
 	slotList.sort(sortSlot);
@@ -459,7 +457,7 @@ private function sortBoneList():Void
 
 
 /** @private When AnimationState enter a key frame, call this func*/
-dragonBones_private function arriveAtFrame(frame:Frame, animationState:FastAnimationState):Void
+private function arriveAtFrame(frame:Frame, animationState:FastAnimationState):Void
 {
 	if(frame.event && this.hasEventListener(FrameEvent.ANIMATION_FRAME_EVENT))
 	{
@@ -572,7 +570,7 @@ public function getSlotDic():Object
 	return _slotDic;
 }
 
-dragonBones_private function addEvent(event:Event):Void
+private function addEvent(event:Event):Void
 {
 	if (_enableEventDispatch)
 	{

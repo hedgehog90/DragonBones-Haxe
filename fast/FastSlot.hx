@@ -17,30 +17,28 @@ import dragonBones.objects.SlotFrame;
 import dragonBones.utils.ColorTransformUtil;
 import dragonBones.utils.TransformUtil;
 
-use namespace dragonBones_internal;
-
 import flash.Vector;
 
 class FastSlot extends FastDBObject implements ISlotCacheGenerator
 {
 /** @private Need to keep the reference of DisplayData. When slot switch displayObject, it need to restore the display obect's origional pivot. */
-dragonBones_private var _displayDataList:Vector<DisplayData>;
+private var _displayDataList:Vector<DisplayData>;
 /** @private */
-dragonBones_private var _originZOrder:Float;
+private var _originZOrder:Float;
 /** @private */
-dragonBones_private var _tweenZOrder:Float;
+private var _tweenZOrder:Float;
 /** @private */
-dragonBones_private var _originDisplayIndex:Float;
+private var _originDisplayIndex:Float;
 /** @private */
-dragonBones_private var _gotoAndPlay:String;
-dragonBones_private var _defaultGotoAndPlay:String;
+private var _gotoAndPlay:String;
+private var _defaultGotoAndPlay:String;
 
 private var _offsetZOrder:Float;
 
 private var _displayList:Array;
 private var _currentDisplayIndex:Int;
-dragonBones_private var _colorTransform:ColorTransform;
-dragonBones_private var _isColorChanged:Bool;
+private var _colorTransform:ColorTransform;
+private var _isColorChanged:Bool;
 private var _currentDisplay:Object;
 
 private var _blendMode:String;
@@ -98,7 +96,7 @@ override public function dispose():Void
 
 //动画
 /** @private */
-override dragonBones_private function updateByCache():Void
+override private function updateByCache():Void
 {
 	super.updateByCache();
 	updateTransform();
@@ -126,7 +124,7 @@ override dragonBones_private function updateByCache():Void
 }
 
 /** @private */
-dragonBones_private function update():Void
+private function update():Void
 {
 	if(this._parent._needUpdate <= 0)
 	{
@@ -187,7 +185,7 @@ private function updateChildArmatureAnimation():Void
 	}
 }
 
-dragonBones_private function initDisplayList(newDisplayList:Array):Void
+private function initDisplayList(newDisplayList:Array):Void
 {
 	this._displayList = newDisplayList;
 }
@@ -212,7 +210,7 @@ private function clearCurrentDisplay():Int
 }
 
 /** @private */
-dragonBones_private function changeDisplayIndex(displayIndex:Int):Void
+private function changeDisplayIndex(displayIndex:Int):Void
 {
 	if(_currentDisplayIndex == displayIndex)
 	{
@@ -466,7 +464,7 @@ public var gotoAndPlay(getGotoAndPlay, setGotoAndPlay):String;
 /**
  * @private
  */
-dragonBones_private function updateDisplay(value:Object):Void
+private function updateDisplay(value:Object):Void
 {
 	throw new IllegalOperationError("Abstract method needs to be implemented in subclass!");
 }
@@ -486,7 +484,7 @@ dragonBones_public var display(getDisplay, setDisplay):Object;
  * @param container
  * @param index
  */
-dragonBones_private function addDisplayToContainer(container:Object, index:Int = -1):Void
+private function addDisplayToContainer(container:Object, index:Int = -1):Void
 {
 	throw new IllegalOperationError("Abstract method needs to be implemented in subclass!");
 }
@@ -495,7 +493,7 @@ dragonBones_private function addDisplayToContainer(container:Object, index:Int =
  * @private
  * remove the original display object from its parent.
  */
-dragonBones_private function removeDisplayFromContainer():Void
+private function removeDisplayFromContainer():Void
 {
 	throw new IllegalOperationError("Abstract method needs to be implemented in subclass!");
 }
@@ -504,7 +502,7 @@ dragonBones_private function removeDisplayFromContainer():Void
  * @private
  * Updates the transform of the slot.
  */
-dragonBones_private function updateTransform():Void
+private function updateTransform():Void
 {
 	throw new IllegalOperationError("Abstract method needs to be implemented in subclass!");
 }
@@ -512,7 +510,7 @@ dragonBones_private function updateTransform():Void
 /**
  * @private
  */
-dragonBones_private function updateDisplayVisible(value:Bool):Void
+private function updateDisplayVisible(value:Bool):Void
 {
 	/**
 	 * bone.visible && slot.visible && updateVisible
@@ -533,7 +531,7 @@ dragonBones_private function updateDisplayVisible(value:Bool):Void
  * @param gM
  * @param bM
  */
-dragonBones_private function updateDisplayColor(
+private function updateDisplayColor(
 	aOffset:Float, 
 	rOffset:Float, 
 	gOffset:Float, 
@@ -561,13 +559,13 @@ dragonBones_private function updateDisplayColor(
  * Update the blend mode of the display object.
  * @param value The blend mode to use. 
  */
-dragonBones_private function updateDisplayBlendMode(value:String):Void
+private function updateDisplayBlendMode(value:String):Void
 {
 	throw new IllegalOperationError("Abstract method needs to be implemented in subclass!");
 }
 
 /** @private When slot timeline enter a key frame, call this func*/
-dragonBones_private function arriveAtFrame(frame:Frame, animationState:FastAnimationState):Void
+private function arriveAtFrame(frame:Frame, animationState:FastAnimationState):Void
 {
 	var slotFrame:SlotFrame = frame as SlotFrame;
 	var displayIndex:Int = slotFrame.displayIndex;
@@ -598,7 +596,7 @@ dragonBones_private function arriveAtFrame(frame:Frame, animationState:FastAnima
 }
 
 	/** @private */
-dragonBones_private function hideSlots():Void
+private function hideSlots():Void
 {
 	changeDisplayIndex( -1);
 	removeDisplayFromContainer();
@@ -623,7 +621,7 @@ override private function updateGlobal():ParentTransformObject
 	return output;
 }
 
-dragonBones_private function resetToOrigin():Void
+private function resetToOrigin():Void
 {
 	changeDisplayIndex(_originDisplayIndex);
 	updateDisplayColor(0, 0, 0, 0, 1, 1, 1, 1, true);

@@ -7,8 +7,6 @@ import dragonBones.fast.FastArmature;
 import dragonBones.fast.FastSlot;
 import dragonBones.objects.AnimationData;
 
-use namespace dragonBones_internal;
-
 /**
  * 不支持动画融合，在开启缓存的情况下，不支持无极的平滑补间
  */
@@ -168,7 +166,7 @@ public function stop():Void
 }
 
 /** @private */
-dragonBones_private function advanceTime(passedTime:Float):Void
+private function advanceTime(passedTime:Float):Void
 {
 	if(!_isPlaying)
 	{

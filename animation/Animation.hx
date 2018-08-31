@@ -7,8 +7,6 @@ import dragonBones.fast.animation.FastBoneTimelineState;
 import dragonBones.fast.animation.FastSlotTimelineState;
 import dragonBones.objects.AnimationData;
 
-use namespace dragonBones_internal;
-
 /**
  * An Animation instance is used to control the animation state of an Armature.
  * @see dragonBones.Armature
@@ -37,13 +35,13 @@ class Animation
 	private var _timeScale:Float;
 
 	/** @private */
-	dragonBones_private var _lastAnimationState:AnimationState;
+	private var _lastAnimationState:AnimationState;
 
 	/** @private */
-	dragonBones_private var _isFading:Bool
+	private var _isFading:Bool
 
 	/** @private */
-	dragonBones_private var _animationStateCount:Int;
+	private var _animationStateCount:Int;
 
 
 	/**
@@ -82,7 +80,7 @@ class Animation
 		_animationStateList = null;
 	}
 
-	dragonBones_private function resetAnimationStateList():Void
+	private function resetAnimationStateList():Void
 	{
 		var i:Int = _animationStateList.length;
 		var animationState:AnimationState;
@@ -346,7 +344,7 @@ class Animation
 	}
 
 	/** @private */
-	dragonBones_private function advanceTime(passedTime:Float):Void
+	private function advanceTime(passedTime:Float):Void
 	{
 		if(!_isPlaying)
 		{
@@ -375,7 +373,7 @@ class Animation
 
 	/** @private */
 	//当动画播放过程中Bonelist改变时触发
-	dragonBones_private function updateAnimationStates():Void
+	private function updateAnimationStates():Void
 	{
 		var i:Int = _animationStateList.length;
 		while(i --)

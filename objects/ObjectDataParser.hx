@@ -23,8 +23,6 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.utils.Dictionary;
 
-use namespace dragonBones_internal;
-
 public final class ObjectDataParser
 {
 private static var tempDragonBonesData:DragonBonesData;
